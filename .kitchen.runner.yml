@@ -1,0 +1,42 @@
+# Be sure to set the .kitchen while you wish via:
+#   Linux: export KITCHEN_YAML=.kitchen.cloud.yml
+#   Windows: set KITCHEN_YAML=.kitchen.cloud.yml
+---
+driver:
+  name: ec2
+  aws_ssh_key_id: 'chef_runners'
+  security_group_ids: ["sg-835180f8", "sg-8e5180f5", "sg-805180fb"]
+  region: us-east-1
+  availability_zone: d
+  require_chef_omnibus: 13.8.0
+  subnet_id: subnet-d35aa68b
+  iam_profile_name: allow-domain-join
+  instance_type: t2.micro
+  associate_public_ip: false
+  retryable_tries: 200
+  retryable_sleep: 8
+  tags:
+    Created_by: "test-kitchen"
+    Application: "Systems"
+    Owner: runner@frontlineed.com
+    Cookbook: <%= Dir.pwd.scan( /\/[a-zA-Z\-\_]+/).last.reverse.chop.reverse %>
+    Name: "Chef-Test-Kitchen"
+  block_device_mappings:
+    - device_name: /dev/sda1
+      ebs:
+        volume_size: 30
+        delete_on_termination: true
+ 
+transport:
+  ssh_key: <%= ENV['HOME'] %>/.ssh/chef_runners.pem
+ 
+provisioner:
+  name: chef_zero
+ 
+platforms:
+  - name: centos-7
+ 
+suites:
+  - name: default
+    run_list:
+      - recipe[nxlog::default]
