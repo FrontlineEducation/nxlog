@@ -1,10 +1,54 @@
 AllCops:
+  TargetRubyVersion: 2.3
+  Include:
+    - Berksfile
+    - Gemfile
+    - Rakefile
   Exclude:
-    - '.kitchen/**/*'
-    - 'vendor/bundle/**/*'
-
-Style/SingleSpaceBeforeFirstArg:
+    - libraries/*.rb
+    - providers/*.rb
+    - resources/*.rb
+    - recipes/*.rb
+    - spec/*.rb
+    - attributes/*.rb 
+    - test/**/*.rb
+    - lib/**/*.rb
+    - Berksfile
+    - metadata.rb
+    - Gemfile
+AlignParameters:
   Enabled: false
-
-Style/NumericLiterals:
+BlockLength:
   Enabled: false
+Encoding:
+  Enabled: false
+EndOfLine:
+  Enabled: false
+FormatStringToken:
+  EnforcedStyle: template
+HashSyntax:
+  EnforcedStyle: hash_rockets
+Layout/SpaceBeforeFirstArg:
+  Enabled: false
+LineLength:
+  Max: 250
+MethodLength:
+  Enabled: false
+Metrics/MethodLength:
+  Max: 50
+MultilineBlockChain:
+  Enabled: false
+ParenthesesAsGroupedExpression:
+  Enabled: false
+StringLiterals:
+  Enabled: false
+SymbolArray:
+  EnforcedStyle: brackets
+Style/FileName:
+  Enabled: false
+Style/FrozenStringLiteralComment:
+  Enabled: false
+Style/PercentLiteralDelimiters:
+  PreferredDelimiters:
+    default: '[]'
+    '%w': '[]'

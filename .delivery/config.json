@@ -1,10 +1,10 @@
 {
   "version": "2",
   "build_cookbook": {
-    "name": "build_cookbook",
-    "path": ".delivery/build_cookbook"
+   "name": "fl_build_cookbook",
+   "server": "true"
   },
-  "skip_phases": [],
+  "skip_phases": ["unit"],
   "job_dispatch": {
     "version": "v2"
   },

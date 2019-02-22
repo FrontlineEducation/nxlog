@@ -3,13 +3,13 @@ source 'https://rubygems.org'
 gem 'berkshelf'
 
 group :integration do
+  gem 'kitchen-vagrant'
   gem 'rspec_junit_formatter'
   gem 'rubocop-junit-formatter'
   gem 'serverspec'
+  gem 'test-kitchen'
   gem 'windows_chef_zero'
   gem 'winrm-transport'
-  gem 'test-kitchen'
-  gem 'kitchen-vagrant'
 end
 
 group :development, :test do

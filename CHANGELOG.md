@@ -1,3 +1,8 @@
+
+v0.8.8
+-----
+- [Jesse Piccolo] Forked into FrontlineEductation org, adding to Chef Automate
+
 # 0.8.7
 
 * Prevent installation of package config from .deb packages
